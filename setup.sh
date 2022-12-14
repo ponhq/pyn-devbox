@@ -32,3 +32,6 @@ function config_box() {
   ln -sfnv "${PYN_DEVBOX_HOME}"/.vim  ~/.vim
   vim +PluginInstall +qall
 }
+
+# shellcheck disable=SC2068
+eval $@

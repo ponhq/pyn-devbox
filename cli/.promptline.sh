@@ -163,16 +163,18 @@ function __promptline {
     local noprint='\[' end_noprint='\]'
   fi
 
-  # production
+  # danger - unknown
   local DARK_ORANGE_BG="48;5;166"
   local DARK_ORANGE_FG="38;5;166"
   local LIGHT_ORANGE_FG="38;5;220"
-
-  # demo
+  # production
+  local DARK_RED_BG="48;5;124"
+  local DARK_RED_FG="38;5;35"
+  local LIGHT_RED_FG="38;5;231"
+  # staging
   local DARK_PURPLE_BG="48;5;55"
   local DARK_PURPLE_FG="38;5;55"
   local LIGHT_PURPLE_FG="38;5;135"
-
   # dev
   local DARK_GREEN_BG="48;5;35"
   local DARK_GREEN_FG="38;5;35"
@@ -182,12 +184,16 @@ function __promptline {
     local a_host_bg=${DARK_GREEN_BG}
     local a_host_fg=${LIGHT_GREEN_FG}
     local a_host_sep=${DARK_GREEN_BG}
-  elif [[ ${PYN_DEVBOX_ENV} == 'demo' ]]; then
+  elif [[ ${PYN_DEVBOX_ENV} == 'staging' ]]; then
     local a_host_bg=${DARK_PURPLE_BG}
     local a_host_fg=${LIGHT_PURPLE_FG}
     local a_host_sep=${DARK_PURPLE_FG}
+  elif [[ ${PYN_DEVBOX_ENV} == 'production' ]]; then
+    local a_host_bg=${DARK_RED_BG}
+    local a_host_fg=${LIGHT_RED_FG}
+    local a_host_sep=${DARK_RED_FG}
   else
-    # production or unknown ... danger zone
+    # unknown ... danger zone
     local a_host_bg=${DARK_ORANGE_BG}
     local a_host_fg=${LIGHT_ORANGE_FG}
     local a_host_sep=${DARK_ORANGE_FG}

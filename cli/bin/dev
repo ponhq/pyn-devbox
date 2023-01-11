@@ -1,5 +1,10 @@
 #! /usr/bin/env bash
 
+function audit() {
+  max=${1:'500000'}
+  du -k * | awk "\$1 > $max" | sort -nr
+}
+
 if [[ -z $1 ]];
 then
     cd "${PYN_DEVBOX_HOME}"

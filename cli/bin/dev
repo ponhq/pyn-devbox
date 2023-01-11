@@ -5,6 +5,8 @@ function audit() {
   du -k * | awk "\$1 > $max" | sort -nr
 }
 
+eval $@
+
 if [[ -z $1 ]];
 then
     cd "${PYN_DEVBOX_HOME}"
